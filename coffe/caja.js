@@ -19,3 +19,22 @@ export const agregarPedido = (cliente, idProducto) => {
     console.log("Producto no encontrado.");
   }
 };
+
+
+// caja.js
+import { pedidos } from './cliente.js'; 
+export const calcularCaja = () => {
+  const subtotal = pedidos.reduce((acumulado, { precio }) => {
+    return acumulado + precio;
+  }, 0);
+
+  const IVA_PORCENTAJE = 0.16;
+  const iva = subtotal * IVA_PORCENTAJE;
+  const total = subtotal + iva;
+
+  return {
+    subtotal,
+    iva,
+    total
+  };
+};
