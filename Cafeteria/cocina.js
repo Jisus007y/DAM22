@@ -38,8 +38,6 @@ export const listarProductos = () => {
 
 
 
-
-
 export const obtenerProductosBaratos = () => {
   return productos.filter(producto => producto.precio <= 25);
 };
