@@ -1,28 +1,53 @@
-/*1. zona de importaciones */
+/* 1. Zona de importaciones */
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,Text, View} from 'react-native';
+import { StyleSheet, View, Text, Image, Pressable, Switch } from 'react-native';
+import { useState } from 'react';
+import SwitchEjemplo from '../components/SwitchEjemplo';
 
+/* 2. Zona Main */
+export default function PressableScreen() {
+    const [imagenGrande, setImagenGrande] = useState(false)
+    const [obscuro, setObscuro] = useState(false)
 
-/*2. zona de main*/ 
-export default function PresableScreen() {
-  return (
+    return (
+        <View style={[styles.container, { backgroundColor: obscuro ? '#000000' : '#ffffff' }]}>
 
-    <View style={styles.container}>
+            <Pressable onPress={() => setImagenGrande(!imagenGrande)}>
+                <Text style={{ color: obscuro ? '#ffffff' : '#000000' }}>Presioname</Text>
+            </Pressable>
 
-      <Text>Aqui va la presentacion de  Israel Solis Lopez</Text>
+            <Pressable onPress={() => setImagenGrande(!imagenGrande)}>
+                <Image
+                    source={require("../assets/wavev.png")}
+                    style={imagenGrande ? styles.imagenGrande : styles.image}
+                />
+            </Pressable>
 
-      
-      <StatusBar style="auto" />
-    </View>
-  );
+            <SwitchEjemplo obscuro={obscuro} setObscuro={setObscuro} />
+
+            <StatusBar style="auto" />
+        </View>
+    );
 }
 
-/*3. zona de estilos y posicionamiento*/
+/* 3. Zona de estilos y posicionamiento */
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+    container: {
+        flex: 1,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    texto: {
+        fontSize: 20,
+        marginBottom: 20
+    },
+    image: {
+        width: 100,
+        height: 100,
+    },
+    imagenGrande: {
+        width: 180,
+        height: 180,
+    }
 });
