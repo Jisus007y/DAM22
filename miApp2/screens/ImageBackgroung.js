@@ -19,11 +19,8 @@ export default function App() {
   if (showSplash) {
     return (
       <View style={styles.splashContainer}>
-        <Text style={styles.splashIcon}>😸</Text>
-        <Text style={styles.splashTitle}>BIENVENIDOS</Text>
-        <Text style={styles.splashSub}>Práctica No.9: Componentes Nativos</Text>
-        <ActivityIndicator size="large" color="#fff" style={{marginTop: 20}} />
-        <Text style={styles.splashLoading}>Cargando presentación...</Text>
+        <ActivityIndicator size="large" color="#f0f0f0" style={{marginTop: 20}} />
+        <Text style={styles.splashLoading}>Cargando...</Text>
         <StatusBar style="light" />
       </View>
     );
@@ -37,10 +34,7 @@ export default function App() {
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        <Text style={styles.titulo}>ImageBackgroung & SlapshScreen </Text>
-        <Text style={styles.subtitulo}>José de Jesús </Text>
-        <Text style={styles.subtitulo}>Genaro vera </Text>
-        <Text style={styles.subtitulo}>Francisco Joel </Text>
+        <Text style={styles.titulo}>Bienvenido</Text>
       </View>
       
       <StatusBar style="light" />
@@ -55,9 +49,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#14532d', // Verde UPQ
+    backgroundColor: '#000000', // Verde UPQ
     width: '100%',
-    height: Platform.OS === 'web' ? '100vh' : '100%',
   },
   splashIcon: {
     fontSize: 80,
@@ -84,7 +77,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: Platform.OS === 'web' ? '100vh' : '100%',
   },
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.6)',
@@ -94,15 +86,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   titulo: {
-    color: '#fff',
+    color: '#ffffff',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  subtitulo: {
-    color: '#a7f3d0',
-    fontSize: 12,
-    marginTop: 8,
-    textAlign: 'center',
-  }
+ 
 });
