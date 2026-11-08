@@ -1,28 +1,72 @@
-/*1. zona de importaciones */
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,Text, View} from 'react-native';
+import { useState } from "react";
+import { Text, View, Button, TextInput, KeyboardAvoidingView, Pressable, Keyboard, Platform, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
+export default function Inicio({ onRegresar }) {
 
-/*2. zona de main*/ 
-export default function ActivityIndicator() {
-  return (
+    const [correo, setCorreo] = useState('');
+    const [contrasena, setContrasena] = useState('');
 
-    <View style={styles.container}>
+    return (
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <StatusBar style="auto" />
 
-      <Text>Aqui va la presentacion de Yoshua Aaron Renteria Garibay</Text>
+            <Pressable style={styles.contenido} onPress={Keyboard.dismiss}>
 
-      
-      <StatusBar style="auto" />
-    </View>
-  );
+                <Text style={styles.titulo}>Iniciar Sesión</Text>
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Escribe tu correo"
+                    value={correo}
+                    onChangeText={setCorreo}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                />
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Escribe tu contraseña"
+                    value={contrasena}
+                    onChangeText={setContrasena}
+                    secureTextEntry
+                />
+
+                <View style={styles.boton}>
+                    <Button title="Regresar" onPress={onRegresar} />
+                </View>
+
+            </Pressable>
+
+        </KeyboardAvoidingView>
+    );
 }
 
-/*3. zona de estilos y posicionamiento*/
 const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+    container: {
+        flex: 1
+    },
+    contenido: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 24
+    },
+    titulo: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 30
+    },
+    input: {
+        height: 50,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+        paddingHorizontal: 15,
+        marginBottom: 15,
+        fontSize: 16
+    },
+    boton: {
+        marginTop: 10
+    }
 });
