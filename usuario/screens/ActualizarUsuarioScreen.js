@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { SafeAreaView,View,Text, TextInput, Pressable, StyleSheet,} from 'react-native';
-import { useLocalsearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 
 
 
 export default function ActualizarUsuarioScreen() {
-  const params = useLocalsearchParams();
+  const params = useLocalSearchParams();
 
   const [nombre, setNombre] = useState(params.nombre);
   const [edad, setEdad] = useState(params.edad);

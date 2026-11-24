@@ -1,5 +1,5 @@
-import DetalleUsuarioScreen from "../screens/DetalleUsuariosScreen";
+import DetalleUsuarioScreen from "../screens/DetalleUsuarioScreen";
 
-export default function detalle() {
-    return <DetalleUsuarioScreen />;
+export default function Detalle() {
+  return <DetalleUsuarioScreen />;
 }

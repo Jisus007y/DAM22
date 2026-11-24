@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { SafeAreaView,View,Text,StyleSheet,Pressable,Modal,} from 'react-native';
-import {router,useLocalsearchParams} from 'expo-router';
+import {router,useLocalSearchParams} from 'expo-router';
 
 
 export default function DetalleUsuarioScreen() {
 
-  const {id,nombre,edad}=useLocalsearchParams();
+  const {id,nombre,edad}=useLocalSearchParams();
 
   const actualizarUsuario=()=>{
     router.push({pathname:'/actualiza' 
